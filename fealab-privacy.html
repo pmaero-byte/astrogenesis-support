@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - FEA Lab</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background-color: #121212;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #82c7ff;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #82c7ff;
+            margin-top: 30px;
+        }
+        .last-updated {
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #82c7ff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background-color: #1e1e1e;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-family: "SF Mono", "Menlo", "Courier New", monospace;
+            font-size: 0.9em;
+            color: #d3d3ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last Updated: April 2026</p>
+
+    <p>FEA Lab is a native macOS finite element analysis app that runs entirely on your device. We do not operate a FEA Lab server, we do not run a telemetry service, and we do not have a user account system. There is no "user data" for us to collect because FEA Lab never sends your data to us.</p>
+
+    <p>This page explains what that means in App-Review-grade detail.</p>
+
+    <h2>1. Information FEA Lab does not collect</h2>
+    <ul>
+        <li><strong>Account or identity information.</strong> There is no sign-up, sign-in, or user profile in FEA Lab. We never ask for your name, email, phone number, Apple ID, password, or any other identifier.</li>
+        <li><strong>Analytics or telemetry.</strong> FEA Lab does not integrate any analytics SDK. We do not log feature usage, crash rates, session length, click streams, or any other behavioural data to a remote server.</li>
+        <li><strong>Advertising identifiers.</strong> FEA Lab does not request or use the Identifier for Advertisers (IDFA), does not integrate ad networks, and does not fingerprint your device.</li>
+        <li><strong>Location data.</strong> FEA Lab does not request access to Core Location or any geolocation data.</li>
+        <li><strong>Contacts, photos, microphone, camera, or Health data.</strong> FEA Lab does not request access to any of these.</li>
+        <li><strong>Your simulation files.</strong> The contents of your mesh, materials, boundary conditions, and results never leave your Mac via any FEA Lab–initiated network call.</li>
+    </ul>
+
+    <h2>2. Information FEA Lab stores locally on your Mac</h2>
+    <p>The following is stored inside the app's sandbox container on your own device. None of it is transmitted anywhere.</p>
+    <ul>
+        <li><strong>Project files you save.</strong> <code>.fealab</code> / <code>.feap</code> documents are written to whatever location you choose via the standard macOS Save panel.</li>
+        <li><strong>Autosave cache.</strong> FEA Lab keeps a working copy of the current project in its sandbox so you don't lose progress on a crash. You can clear this at any time by deleting <code>~/Library/Containers/tech.jambudweep.fealab/Data/</code>.</li>
+        <li><strong>Window frame + UI preferences.</strong> Window position, last-opened project, solver-backend preference, and diagnostics-panel state are written to <code>NSUserDefaults</code> under <code>tech.jambudweep.fealab</code>.</li>
+        <li><strong>Crash logs.</strong> If FEA Lab crashes, a structured crash report is written to <code>~/Library/Logs/FEALAB/crashes/</code> using Apple's standard log format. These files stay on your Mac; they are not sent to us. They exist so you can mail them in if you ever open a support issue.</li>
+    </ul>
+
+    <h2>3. Network access</h2>
+    <p>FEA Lab requests the <code>com.apple.security.network.client</code> entitlement only for these specific, user-initiated cases:</p>
+    <ul>
+        <li><strong>Help → Documentation</strong> — opens a link to the public FEA Lab GitHub page in your browser.</li>
+        <li><strong>Optional "fetch live build" mode</strong> — disabled in App Store builds; lets development-mode users load the web UI from <code>jambudweep.tech/fealab/</code> instead of the embedded copy. All fetches are over HTTPS/TLS 1.2+.</li>
+    </ul>
+    <p>No background network traffic. No analytics pings. No license checks. No "phone home" behaviour of any kind.</p>
+
+    <h2>4. File access</h2>
+    <p>FEA Lab is App-Sandboxed. The only filesystem access it has comes from:</p>
+    <ul>
+        <li><code>com.apple.security.files.user-selected.read-write</code> — so the Open and Save panels work, and so you can import meshes (<code>.abq</code>, <code>.vtk</code>, <code>.stl</code>) and export results (<code>.csv</code>, <code>.vtk</code>, <code>.json</code>).</li>
+        <li><code>com.apple.security.files.bookmarks.app-scope</code> — so FEA Lab can re-open a recent project file across app launches.</li>
+    </ul>
+    <p>FEA Lab cannot read or write anywhere on your Mac other than files you've explicitly opened in the app, plus its own sandbox container.</p>
+
+    <h2>5. Third-party software</h2>
+    <p>FEA Lab is built on top of several open-source libraries:</p>
+    <ul>
+        <li>Apple's own SwiftUI, WebKit, Accelerate, Metal, MLX frameworks</li>
+        <li><code>mlx-swift</code> (MIT)</li>
+        <li><code>swift-numerics</code> (Apache 2.0)</li>
+        <li>Sparkle (MIT) — linked for Developer-ID release builds only; dead-coded out of Mac App Store builds via a compile-time flag</li>
+    </ul>
+    <p>None of these libraries collect or transmit personal data in FEA Lab's configuration of them.</p>
+
+    <h2>6. Children</h2>
+    <p>FEA Lab is a professional engineering tool. It is rated 4+ on the App Store because it does not contain any objectionable content, but it is not targeted at children and does not knowingly collect data from children.</p>
+
+    <h2>7. Changes to this policy</h2>
+    <p>If we ever start collecting data — which is not on any roadmap we have — we will update this page with an effective date and announce the change in the app's release notes before the change takes effect. Your continued use of a version that includes data collection would always be opt-in, never silent.</p>
+
+    <h2>8. Contact</h2>
+    <p>If you have questions about this policy or about how FEA Lab handles your data, please file an issue on the public repository: <a href="https://github.com/pmaero-byte/FEA_LAB/issues">github.com/pmaero-byte/FEA_LAB/issues</a>.</p>
+
+    <p>FEA Lab is developed as an independent project. This policy applies to the macOS app distributed through the Mac App Store (bundle identifier <code>tech.jambudweep.fealab</code>) and to any companion web preview served under the same branding. The policy does not govern any third-party fork or redistribution of the open-source code.</p>
+</body>
+</html>
